@@ -63,6 +63,8 @@ class DefaultController extends Controller
             $product = $form->getData();
             $em->persist($product);
             $em->flush();
+            return $this->redirect($request->getUri());
+
         }
         return $this->render('default/index.html.twig',[
             'form1'=>$form->createView()

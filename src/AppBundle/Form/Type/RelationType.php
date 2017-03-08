@@ -10,7 +10,7 @@ namespace AppBundle\Form\Type;
 
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,9 +22,13 @@ class RelationType extends AbstractType
  {
     $builder->add('name',TextType::class)
         ->add('surname',TextType::class)
-        ->add('work',TextType::class,array(
-            'by_reference'=>true,
-        ))
+        ->add('work',ChoiceType::class,array(
+            'choices'=>array(
+                "robol"=>"1",
+                "prezes"=>'2'
+            )
+            )
+        )
         ->add('save',SubmitType::class);
  }
     public function configureOptions(OptionsResolver $resolver)
