@@ -21,13 +21,17 @@ class Work
      */
     private $id;
 
+
     /**
      * @var string
      *
      * @ORM\Column(name="Name", type="string", length=255)
      */
     private $name;
-
+    public function __toString()
+    {
+        return strval($this->id);
+    }
 
     /**
      * Get id

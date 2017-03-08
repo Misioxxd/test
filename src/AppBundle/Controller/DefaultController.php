@@ -6,6 +6,7 @@ use AppBundle\Form\Type\ProgrammerType;
 use AppBundle\Form\Type\RelationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -34,7 +35,9 @@ class DefaultController extends Controller
      */
     public function addAction(Request $request)
     {
+
      $form = $this->createForm(ProgrammerType::class);
+
      $form->handleRequest($request);
      if($form->isSubmitted() && $form->isValid())
      {
@@ -55,7 +58,10 @@ class DefaultController extends Controller
      */
     public function anotherAction(Request $request)
     {
+
+
         $form = $this->createForm(RelationType::class);
+        $form ->add('save',SubmitType::class);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
