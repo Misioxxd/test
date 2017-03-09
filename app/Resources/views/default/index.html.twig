@@ -1,12 +1,24 @@
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 
+{% endblock %}
 
-{% block body %}
-   <h1>HI!</h1>
+{% block body  %}
+    <body style="background-color:powderblue">
+    <nav class="navbar navbar-default" style="background-color:aquamarine; ">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Michał Site</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li ><a href="{{path('HomePage') }}" >Main</a></li>
+                <li><a href="{{path('showData') }}">Show Data</a></li>
+                <li><a href="{{path('InsertData') }}">Insert Data</a></li>
+                <li><a href="#">Page 3</a></li>
+            </ul>
+        </div>
+    </nav>
+    </body>
 
-    {#{{ form_start(form) }}#}
-    {#{{  form_widget(form) }}#}
-    {#{{ form_end(form)}}#}
-    {{ form_start(form1) }}
-    {{  form_widget(form1) }}
-    {{ form_end(form1)}}
 {% endblock %}
