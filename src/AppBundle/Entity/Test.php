@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Test
  *
- * @ORM\Table(name="entity_test")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\Entity\TestRepository")
+ * @ORM\Table(name="test")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TestRepository")
  */
 class Test
 {
@@ -37,7 +37,7 @@ class Test
 
     /**
      * @var int
-     *@ORM\ManyToOne(targetEntity="Work", inversedBy="id")
+     *
      * @ORM\Column(name="Work", type="integer")
      */
     private $work;

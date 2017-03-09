@@ -27,10 +27,10 @@ class RelationType extends AbstractType
 
 
      $builder->add('name',TextType::class, array(
-         'label'=>"imie"
+         'label'=>"Imie:"
      ))
         ->add('surname',TextType::class, array(
-            'label'=>"nazwisko"
+            'label'=>"Nazwisko: "
         ))
          ->add('work', EntityType::class, array(
                  'class' => 'AppBundle:Work',

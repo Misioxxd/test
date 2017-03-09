@@ -22,7 +22,9 @@ class DefaultController extends Controller
 
 
         $form = $this->createForm(RelationType::class);
-        $form ->add('save',SubmitType::class);
+        $form ->add('save',SubmitType::class,array(
+            'label'=>"wyslij "
+        ));
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
@@ -70,5 +72,12 @@ class DefaultController extends Controller
     {
         return $this->render(':default:main.html.twig');
     }
+    /**
+     *
+     * @Route ("/edit/{id}", name="editPage")
+     * **/
+//    public function editAction($id) {
+//
+//    }
 
 }

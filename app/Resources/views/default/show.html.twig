@@ -6,12 +6,19 @@
     {{ parent()}}
     {% if data %}
         <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Work</th>
+            </tr>
             {% for dataValue in data %}
+
                 <tr><td>{{   dataValue.id }}</td>
                     <td>{{ dataValue.name }}</td>
                     <td>{{ dataValue.surname }}</td>
                     <td>{{ dataValue.workname }}</td>
-                    <td><input type="button" value="edit"></td>
+                    {#<a class="btn btn-default" href="{{ path('edit', ) }}">Edit</a>#}
                 </tr>
             {% endfor %}
         </table>
