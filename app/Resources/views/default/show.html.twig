@@ -1,9 +1,9 @@
 {% extends ":default:index.html.twig" %}
 {% block head %}
-    {{ parent()}}
+    {{ parent() }}
 {% endblock %}
 {% block body %}
-    {{ parent()}}
+    {{ parent() }}
     {% if data %}
         <table class="table">
             <tr>
@@ -14,13 +14,23 @@
             </tr>
             {% for dataValue in data %}
 
-                <tr><td>{{   dataValue.id }}</td>
+                <tr>
+                    <td>{{ dataValue.id }}</td>
                     <td>{{ dataValue.name }}</td>
                     <td>{{ dataValue.surname }}</td>
                     <td>{{ dataValue.workname }}</td>
-                    {#<a class="btn btn-default" href="{{ path('edit', ) }}">Edit</a>#}
+                    <td><a class="btn btn-default"
+                           href="{{ path('Edit',{'id':dataValue.id},{'request':app.request}) }}">Edit</a></td>
+                    <td><a class="btn btn-default" href="{{ path('Delete',{'id':dataValue.id})}}" onclick="return confirm('Czy napewno chcesz to usunąć')">Delete</a></td>
                 </tr>
             {% endfor %}
         </table>
+    {% endif %}
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
     {% endif %}
 {% endblock %}
