@@ -17,7 +17,7 @@ class DefaultController extends Controller
 
     /**
      * @param Request $request
-     * @Route("/b", name="InsertData")
+     * @Route("/insertData", name="InsertData")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function addAction(Request $request)
@@ -49,7 +49,7 @@ class DefaultController extends Controller
 
     /**
      *
-     * @Route ("/a" ,name="showData")
+     * @Route ("/showData" ,name="showData")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showDataAction()
@@ -102,12 +102,20 @@ class DefaultController extends Controller
             $em->flush();
             $this->get("session")->getFlashBag()->add("success","Edycja została ukończona pomyślnie");
 
-            return $this->redirect('/a');
+            $url = $this->generateUrl('showData');
+            return $this->redirect($url);
         }
         return $this->render('default/add.html.twig',[
             'form1'=>$form->createView()
         ]);
 
+    }
+
+    /**
+     * @Route("/login", name="login")
+     */
+    public function loginAction(){
+        return $this->render('FOSUserBundle::layout.html.twig');
     }
 
     /**
@@ -122,6 +130,7 @@ class DefaultController extends Controller
         $em->remove($adminentities);
         $em->flush();
         $this->get('session')->getFlashBag()->add('success','Usuwanie przebiegło pomyślnie');
-        return $this->redirect("/a");
+        $url = $this->generateUrl('showData');
+        return $this->redirect($url);
     }
 }

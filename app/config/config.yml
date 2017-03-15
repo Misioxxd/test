@@ -33,7 +33,7 @@ framework:
     assets: ~
     php_errors:
         log: true
-
+    translator: { fallback: en }
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"
@@ -70,9 +70,9 @@ swiftmailer:
     spool:     { type: memory }
 # FOSUser
 fos_user:
-    db_driver: orm
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
-    user_class: UserBundle\Entity\User
+    user_class: AppBundle\Entity\User
     from_email:
-            address: "admind@admin.com"
-            sender_name: "Mechal"
+        address: "admin@admin.pl"
+        sender_name: "MG"
