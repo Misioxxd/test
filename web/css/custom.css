@@ -1,0 +1,15 @@
+.form-horizontal{
+    width: 300px;
+    margin: 0 auto;
+}
+.errors{
+    background-color: red;
+    color: black;
+    width: 50%;
+    padding: 10px;
+    border-radius: 10%;
+    margin: 0 auto;
+}
+body{
+    background-color: #2aabd2;
+}

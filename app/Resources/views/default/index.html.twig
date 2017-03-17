@@ -1,6 +1,8 @@
 {% block head %}
+    <link rel="stylesheet" href="{{ asset('css/customLogIn.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+
 
 {% endblock %}
 
@@ -14,8 +16,12 @@
             <ul class="nav navbar-nav">
                 <li ><a href="{{path('HomePage') }}" >Main</a></li>
                 <li><a href="{{path('showData') }}">Show Data</a></li>
-                <li><a href="{{path('InsertData') }}">Insert Data</a></li>
-                <li><a href="{{ path('login') }}">login</a></li>
+                {% if is_granted('ROLE_ADMIN') %}<li><a href="{{path('InsertData') }}">Insert Data</a></li>{% endif %}
+                {% if not app.user %}
+                <li class="login"><a  class="glyphicon-log-in" href="{{ path('fos_user_security_login') }}"></a></li>
+                {% else %}
+                    <li class="logout"><a  class="glyphicon-log-in" href="{{ path('fos_user_security_logout') }}"></a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>

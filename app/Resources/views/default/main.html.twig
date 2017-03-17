@@ -5,5 +5,14 @@
 {% block body %}
     {{ parent() }}
   <h1>Welcome</h1>
-
+<table>
+    <tr><td><a class="btn btn-primary btn-group-lg" href="{{ path('InsertData') }}" >Wprowadź nowe dane</a>
+        <td>&nbsp;</td>
+        </td><td><a class="btn btn-primary btn-group-lg" href="{{ path('showData') }}">
+                Pokaż dane
+            </a> </td></tr>
+</table>
+    <div class="embed-responsive embed-responsive-4by3">
+        <iframe class="embed-responsive-item" src="https://youtu.be/dQw4w9WgXcQ"></iframe>
+    </div>
 {% endblock %}

@@ -1,3 +1,11 @@
-{% extends '@FOSUser/layout.html.twig' %}
+{% extends ':default:index.html.twig' %}
+{% block body %}
+
+
+
 {% block content %}
+    {% block fos_user_content %}{% endblock %}
+{% endblock %}
+
+
 {% endblock %}

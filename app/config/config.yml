@@ -33,7 +33,9 @@ framework:
     assets: ~
     php_errors:
         log: true
-    translator: { fallback: en }
+
+
+    translator: ~
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"

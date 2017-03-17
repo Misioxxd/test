@@ -19,10 +19,12 @@
                     <td>{{ dataValue.name }}</td>
                     <td>{{ dataValue.surname }}</td>
                     <td>{{ dataValue.workname }}</td>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <td><a class="btn btn-default"
                            href="{{ path('Edit',{'id':dataValue.id},{'request':app.request}) }}">Edit</a></td>
-                    <td><a class="btn btn-default" href="{{ path('Delete',{'id':dataValue.id})}}" onclick="return confirm('Czy napewno chcesz to usunąć')">Delete</a></td>
-                </tr>
+                    <td><a class="btn btn-default" href="{{ path('Delete',{'id':dataValue.id},{'request':app.request})}}" onclick="return confirm('Czy napewno chcesz to usunąć')">Delete</a></td>
+                    {% endif %}
+                        </tr>
             {% endfor %}
         </table>
     {% endif %}
